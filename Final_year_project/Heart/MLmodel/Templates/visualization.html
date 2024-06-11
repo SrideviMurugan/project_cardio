@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a1b797; /* Light brown background */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Set background image */
+            background-image: url(''); /* Replace with the actual path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensure the background image stays fixed while scrolling */
+            animation: floatBackground 20s linear infinite; /* Animate the background image */
+        }
+
+        @keyframes floatBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            animation: dropVisualization 1s ease-in-out; /* Animate the visualization plots */
+        }
+
+        @keyframes dropVisualization {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            text-align: center;
+            color: #333; /* Dark gray color */
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #555; /* Dark gray color */
+        }
+
+        .visualization {
+            margin-top: 20px;
+        }
+
+        .visualization img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Visualization</h1>
+
+        <div class="visualization">
+            <h2>Count Plot of Heart disease based on age and sex</h2>
+            <img src="data:image/png;base64,{{ count_plot_age_sex_target_image }}" alt="Count Plot">
+        </div>
+
+        <div class="visualization">
+            <h2>Feature Histograms</h2>
+            <img src="data:image/png;base64,{{ feature_histograms_image }}" alt="Feature Histograms">
+        </div>
+
+        <div class="visualization">
+            <h2>ROC Curve Comparison</h2>
+            <img src="data:image/png;base64,{{ roc_curve_comparison_image }}" alt="ROC Curve Comparison">
+        </div>
+
+        <div class="visualization">
+            <h2>Evaluation Comparison</h2>
+            <img src="data:image/png;base64,{{ evaluation_comparison_image }}" alt="Evaluation Comparison">
+        </div>
+
+        <div class="visualization">
+            <h2>Violin Plot of Feature Distribution</h2>
+            <img src="data:image/png;base64,{{ violin_plot_image }}" alt="Violin Plot">
+        </div>
+    </div>
+</body>
+</html>

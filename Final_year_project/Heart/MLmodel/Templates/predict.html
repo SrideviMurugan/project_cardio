@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVD PREDICTION SYSTEM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .cont {
+            position: absolute;
+            left: -10%;
+            width: 120%;
+            height: 100vh;
+            background: url("{% static 'cardioprediction/images/greenbg.png' %}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login_form {
+            position: relative;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1200px; /* Adjusted max-width for larger screens */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .login_form h1 {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #272121;
+            margin-bottom: 20px;
+        }
+
+        .input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between; /* Added space between input columns */
+        }
+
+        .input-column {
+            flex: 0 0 30%; /* Adjusted column width for larger screens */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            color: #272121;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            padding: 10px;
+            font-size: 1em;
+            color: #272121;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            display: none;
+        }
+
+        .submit-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .submit-btn input[type="submit"] {
+            padding: 10px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #008000, #004d00);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn input[type="submit"]:hover {
+            background: linear-gradient(to right, #004d00, #008000);
+        }
+
+        @media screen and (max-width: 768px) {
+            .login_form {
+                padding: 30px;
+            }
+            .login_form h1 {
+                font-size: 1em;
+            }
+            .input-column {
+                flex: 0 0 45%; /* Adjusted column width for medium screens */
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .login_form {
+                padding: 20px;
+            }
+            .login_form h1 {
+                font-size: 0.9em;
+            }
+            .input-column {
+                flex: 0 0 100%; /* Adjusted column width for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="cont"></div>
+        <div class="login_form">
+            <h1>Welcome to the prediction page!</h1>
+            <form action="result">
+                {% csrf_token %}
+                <div class="input-row">
+                    <div class="input-column">
+                        <div class="input-group left">
+                            <label for="age">Age:</label>
+                            <input type="text" id="age" name="age" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group left">
+                            <label for="sex">Sex:</label>
+                            <input type="number" id="sex" name="sex" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group left">
+                            <label for="cp">Chest Pain Type:</label>
+                            <input type="number" id="cp" name="cp" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group left">
+                            <label for="trestbps">Resting Blood Pressure:</label>
+                            <input type="number" id="trestbps" name="trestbps" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                    </div>
+                    <div class="input-column">
+                        <div class="input-group center">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group center">
+                            <label for="chol">Serum Cholesterol:</label>
+                            <input type="number" id="chol" name="chol" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group center">
+                            <label for="fbs">Fasting Blood Sugar:</label>
+                            <input type="number" id="fbs" name="fbs" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group center">
+                            <label for="restecg">Resting Electrocardiographic Results:</label>
+                            <input type="number" id="restecg" name="restecg" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                    </div>
+                    <div class="input-column">
+                        <div class="input-group right">
+                            <label for="thalach">Maximum Heart Rate Achieved:</label>
+                            <input type="number" id="thalach" name="thalach" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group right">
+                            <label for="exang">Exercise Induced Angina:</label>
+                            <input type="number" id="exang" name="exang" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group right">
+                            <label for="slope">Slope:</label>
+                            <input type="number" id="slope" name="slope" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                        <div class="input-group right">
+                            <label for="oldpeak">Old Peak:</label>
+                            <input type="number" id="oldpeak" name="oldpeak" step="0.01" required>
+                            <div class="error-message">Please fill this field.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-btn">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

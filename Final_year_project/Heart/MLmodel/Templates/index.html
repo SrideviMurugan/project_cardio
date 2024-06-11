@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiovascular Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden; /* Prevents horizontal scrollbar due to padding */
+            font-family: Arial, sans-serif; /* Set default font */
+            background-image: url("{% static 'cardioprediction/images/cir.avif' %}");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: darkred; /* Set font color to dark red */
+        }
+
+        .container {
+            text-align: center; /* Center the text inside the container */
+            z-index: 1; /* Place above the background image */
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Larger font size */
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 1.5em; /* Larger font size */
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(to right, #ff3333, #cc0000); /* Gradient red background */
+            color: #ffff; /* Dark white font color */
+            padding: 15px 30px; /* Increase padding for larger button */
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em; /* Larger font size */
+            border-radius: 5px; /* Add rounded corners */
+            transition: background-color 0.3s; /* Add smooth transition */
+            font-weight: bold; /* Make font bold */
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #cc0000, #8b0000); /* Darker gradient red background on hover */
+        }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <h1>WELCOME TO CARDIOVASCULAR PREDICTION SYSTEM</h1>
+        <h2>Your Personal Cardiovascular Health Insight</h2>
+        
+        <form action="predict">
+            <input type="submit" value="Let's Get Started">
+        </form>
+    </div>
+</body>
+</html>

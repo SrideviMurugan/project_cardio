@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url("{% static 'cardioprediction/images/pur.jpeg' %}") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    animation: floatBackground 20s linear infinite alternate;
+}
+
+@keyframes floatBackground {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+}
+
+.head {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5% 20%; /* Adjust the padding to maintain the same ratio */
+    color: #fff; /* Text color for the heading */
+    z-index: 1; /* Ensure text is above background */
+}
+
+.head h1 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px;
+    z-index: 1; /* Ensure content is above background */
+}
+
+.glassy-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px; /* Rounded corners */
+    width: 45%;
+    max-width: 600px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    margin-top: -50px; /* Adjust margin to bring the container closer to the heading */
+}
+
+.glassy-container h1 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #272121;
+    margin-bottom: 20px;
+}
+
+.result-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.result-container p {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.tips-list {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 45%;
+    max-width: 600px;
+}
+
+.tip-box {
+    margin-bottom: 20px;
+}
+
+.tip-box h2 {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    font-size: 1.3em;
+    color: #272121;
+}
+
+.tip-box ul {
+    list-style-type: decimal;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.tip-box ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #444;
+    text-align: left;
+}
+
+
+/* Adjust chart width */
+.chart-image {
+    width: 100%;
+    max-width: 400px; /* Adjust the maximum width according to your preference */
+    display: block;
+    margin: 0 auto;
+
+}
+/* Keep the existing CSS code and add the following */
+
+@keyframes floatPoints {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.tip-box ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #444;
+    text-align: left;
+    animation: floatPoints 1.5s ease-in-out forwards; /* Apply animation to each list item */
+}
+
